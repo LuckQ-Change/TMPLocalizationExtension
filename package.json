@@ -1,0 +1,25 @@
+{
+  "name": "com.unity.tmp.localization",
+  "version": "1.0.0",
+  "displayName": "TextMeshPro Localization Extension",
+  "description": "关于TextMeshPro本地化文本的插件",
+  "unity": "2020.3",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  },
+  "keywords": [
+    "localization",
+    "tmp",
+    "textmeshpro"
+  ],
+  "author": {
+    "name": "WJQ"
+  },
+  "samples": [
+    {
+      "displayName": "Demo",
+      "description": "TextMeshPro 本地化示例",
+      "path": "Samples~"
+    }
+  ]
+}
