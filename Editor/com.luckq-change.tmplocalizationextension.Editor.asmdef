@@ -1,0 +1,20 @@
+{
+    "name": "com.luckq-change.tmplocalizationextension.Editor",
+    "rootNamespace": "",
+    "references": [
+        "com.luckq-change.tmplocalizationextension",
+        "Unity.TextMeshPro",
+        "Unity.TextMeshPro.Editor"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
