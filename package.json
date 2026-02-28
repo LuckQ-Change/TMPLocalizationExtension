@@ -1,19 +1,28 @@
 {
-  "name": "com.unity.tmp.localization",
+   "name": "com.luckq-change.tmplocalizationextension",
   "version": "1.0.0",
-  "displayName": "TextMeshPro Localization Extension",
-  "description": "关于TextMeshPro本地化文本的插件",
+  "displayName": "TMP Localization Extension",
+  "description": "Localization extension for TextMeshPro",
   "unity": "2020.3",
+  "unityRelease": "0f1",
+  "documentationUrl": "https://github.com/LuckQ-Change/TMPLocalizationExtension",
   "dependencies": {
     "com.unity.textmeshpro": "3.0.6"
   },
   "keywords": [
+    "textmeshpro",
     "localization",
-    "tmp",
-    "textmeshpro"
+    "ui"
   ],
   "author": {
-    "name": "WJQ"
+    "name": "WJQ",
+    "email": "wujiaqing2020w@163.com",
+    "url": "https://github.com/LuckQ-Change"
+  },
+  "repository": {
+    "url": "https://github.com/LuckQ-Change/TMPLocalizationExtension.git",
+    "type": "git",
+    "revision": "07be08c8b53577a197b35314eeced8be56c999d2"
   },
   "samples": [
     {
