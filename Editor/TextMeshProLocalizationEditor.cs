@@ -2,6 +2,9 @@ using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
 using TMPro.Localization;
+using System;
+using System.Linq;
+using System.Reflection;
 
 namespace TMPro.Localization.Editor
 {
@@ -14,6 +17,32 @@ namespace TMPro.Localization.Editor
         protected override void OnEnable()
         {
             base.OnEnable();
+            TryAutoInitialize();
+        }
+
+        private void TryAutoInitialize()
+        {
+            if (Localization.Initialized) return;
+
+            // 尝试查找项目中实现了 ILocalizationLoader 的无参构造类
+            var loaderType = TypeCache.GetTypesDerivedFrom<ILocalizationLoader>()
+                .FirstOrDefault(t => !t.IsAbstract && !t.IsInterface && t.GetConstructor(Type.EmptyTypes) != null);
+
+            if (loaderType != null)
+            {
+                try
+                {
+                    var loader = (ILocalizationLoader)Activator.CreateInstance(loaderType);
+                    Localization.Initialize(loader);
+                    // 尝试加载默认语言（当前系统语言）
+                    Localization.SetLanguage(System.Globalization.CultureInfo.CurrentCulture);
+                }
+                catch (Exception e)
+                {
+                    // 仅在调试时输出，避免骚扰用户
+                    // Debug.LogWarning($"[TMP Localization] Auto-init failed: {e.Message}");
+                }
+            }
         }
 
         /// <summary>
@@ -31,6 +60,12 @@ namespace TMPro.Localization.Editor
 
         private void DrawLocalizationPreview(SerializedProperty textProp)
         {
+            if (!Localization.Initialized)
+            {
+                TryAutoInitialize();
+                if (!Localization.Initialized) return;
+            }
+
             string currentInput = textProp.stringValue;
             if (string.IsNullOrEmpty(currentInput)) return;
 

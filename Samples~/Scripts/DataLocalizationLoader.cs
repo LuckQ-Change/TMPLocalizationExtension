@@ -25,7 +25,6 @@ namespace DefaultNamespace
             });
 
             var dictionary = new Dictionary<long, LocalizedTextEntry>();
-            bool isChinese = culture.Name.StartsWith("zh");
 
             foreach (var kvp in LanguageCategory.DataMap)
             {

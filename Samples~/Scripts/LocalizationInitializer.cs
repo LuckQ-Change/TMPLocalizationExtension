@@ -1,5 +1,5 @@
+using DefaultNamespace;
 using UnityEngine;
-using TMPro.Localization;
 
 namespace TMPro.Localization.Samples
 {
